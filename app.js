@@ -10,6 +10,7 @@ buttonCreat.addEventListener("click", () => {
     let divCreat = document.createElement("div");
     let butPlay = document.createElement("button");
     let butPause = document.createElement("button");
+    let reset = document.createElement('button');
     divCreat.style.width = '80%';
     divCreat.style.fontSize = '2.5rem';
     divCreat.style.color = 'white';
@@ -20,6 +21,8 @@ buttonCreat.addEventListener("click", () => {
     divCreat.style.top = '3rem';
     divCreat.innerHTML = '00:00:00';
     butPause.innerHTML = "Stop";
+    reset.innerHTML = "Reset";
+    reset.className = "buttonReset";
     butPause.className = "buttonReset";
     butPlay.className = "buttonReset";
     butPlay.innerHTML = "Play";
@@ -48,9 +51,18 @@ buttonCreat.addEventListener("click", () => {
         butPlay.addEventListener("click", () => {
             intervalId = setInterval(test, 1000);
         });
+        reset.addEventListener('click' , () => {
+            divCreat.remove();
+            butPause.remove();
+            butPlay.remove();
+            reset.remove();
+        })
     }
+
+
 
     compteur.append(divCreat);
     marcheArret.append(butPlay);
     marcheArret.append(butPause);
+    marcheArret.append(reset);
 });
